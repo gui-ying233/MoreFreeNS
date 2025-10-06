@@ -12,16 +12,16 @@
 // ==/UserScript==
 
 (() => {
-    "use strict";
-    const originalRemoveChild = Element.prototype.removeChild;
-    Element.prototype.removeChild = function (...args) {
-        if (args[0].closest(".ArticleContent")) return args[0];
-        return originalRemoveChild.apply(this, args);
-    };
-    document.head.appendChild(
-        Object.assign(document.createElement("style"), {
-            textContent:
-            '.ArticlePageWrapper .ArticleContent::after{background:none!important}#subscription-barrier{display:none}',
-        })
-    );
+	"use strict";
+	const originalRemoveChild = Element.prototype.removeChild;
+	Element.prototype.removeChild = function (...args) {
+		if (args[0].closest(".ArticleContent")) return args[0];
+		return originalRemoveChild.apply(this, args);
+	};
+	document.head.appendChild(
+		Object.assign(document.createElement("style"), {
+			textContent:
+				".ArticlePageWrapper .ArticleContent::after{background:none!important}#subscription-barrier{display:none}",
+		})
+	);
 })();
